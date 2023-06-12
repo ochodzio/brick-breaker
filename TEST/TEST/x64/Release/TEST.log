@@ -1,0 +1,4 @@
+﻿  klasa.cpp
+C:\Users\Przemysław\Desktop\TEST\TEST\klasa.h(2,10): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  TEST.cpp
+C:\Users\Przemysław\Desktop\TEST\TEST\TEST.cpp(1,10): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
