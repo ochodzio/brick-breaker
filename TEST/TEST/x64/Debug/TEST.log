@@ -1,13 +1,2 @@
 ﻿  TEST.cpp
-C:\Users\Przemysław\Desktop\TEST\TEST\TEST.cpp(34,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Przemysław\Desktop\TEST\TEST\TEST.cpp(78,87): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Przemysław\Desktop\TEST\TEST\TEST.cpp(78,56): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Przemysław\Desktop\TEST\TEST\TEST.cpp(83,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Przemysław\Desktop\TEST\TEST\TEST.cpp(83,56): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Przemysław\Desktop\TEST\TEST\TEST.cpp(88,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Przemysław\Desktop\TEST\TEST\TEST.cpp(88,56): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Przemysław\Desktop\TEST\TEST\TEST.cpp(93,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Przemysław\Desktop\TEST\TEST\TEST.cpp(93,56): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Przemysław\Desktop\TEST\TEST\TEST.cpp(98,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Przemysław\Desktop\TEST\TEST\TEST.cpp(98,56): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  TEST.vcxproj -> C:\Users\Przemysław\Desktop\TEST\x64\Debug\TEST.exe
+C:\local_repo\brick-breaker\TEST\TEST\TEST.cpp(1,10): fatal  error C1083: Nie można otworzyć pliku dołącz: 'SFML/Graphics.hpp': No such file or directory
