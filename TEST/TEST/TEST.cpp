@@ -377,12 +377,12 @@ sf:RectangleShape scoreboardButton(sf::Vector2f(200, 50));
                 if (score > highScore) {
                     highScore = score;
                     scoreboard.setHighScore(highScore);
-                    //Update the text strings
-                    highScoreText.setString("High Score: " + std::to_string(highScore));
-                    scoreText.setString("Score: " + std::to_string(score));
+                    
                 }
                 
-
+                //Update the text strings
+                highScoreText.setString("High Score: " + std::to_string(highScore));
+                scoreText.setString("Score: " + std::to_string(score));
 
                 window.clear();
 
