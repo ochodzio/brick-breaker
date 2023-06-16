@@ -3,6 +3,10 @@
 #include <fstream> // added for file handling
 #include <string>// adde for string manipulation
 #include <iostream>
+#include "Scoreboard.h"
+#include "Blocks.h"
+#include "Buttons.h"
+
 
 using namespace sf;
 struct Block {
@@ -37,21 +41,7 @@ struct Block {
     }
 };
 
-std::vector<std::string> readScoreboardFromFile(const std::string& filename) {
-    std::ifstream file(filename);
-    std::vector<std::string> scoreboard;
-
-    if (file.is_open()) {
-        std::string line;
-        while (std::getline(file, line)) {
-            scoreboard.push_back(line);
-        }
-
-        file.close();
-    }
-
-    return scoreboard;
-}
+Scoreboard scoreboard;
 
 int main() {
 
@@ -142,7 +132,7 @@ sf:RectangleShape scoreboardButton(sf::Vector2f(200, 50));
                     {
                         //Scoreboard button clicked, show scorboard
                         showScoreBoard = true;
-                        scoreboardData = readScoreboardFromFile("./scoreboard.txt");
+                        scoreboardData = scoreboard.getScoreboard();
 
                     }
                     else if (exitButton.getGlobalBounds().contains(mousePos))
@@ -225,7 +215,7 @@ sf:RectangleShape scoreboardButton(sf::Vector2f(200, 50));
             float y = 450;
 
             int score = 0;//Variable to keep track of points
-            int highScore = 0;//variable to keep track of the high score
+            int highScore = scoreboard.getHighScore(); //variable to keep track of the high score
 
             //set blocks patern
             for (int i = 0; i < numBlocks * 2.8; i++) {
@@ -266,13 +256,8 @@ sf:RectangleShape scoreboardButton(sf::Vector2f(200, 50));
             }
 
 
-
-            //Load high score from file
-            std::ifstream file("./highscore.txt");
-            if (file.is_open()) {
-                file >> highScore;
-                file.close();
-            }
+            
+           
 
 
 
@@ -389,20 +374,14 @@ sf:RectangleShape scoreboardButton(sf::Vector2f(200, 50));
                         
                 }
 
-                //Update the high score
                 if (score > highScore) {
                     highScore = score;
-
-                    //Save high score to file
-                    std::ofstream file("./highscore.txt");
-                    if (file.is_open()) {
-                        file << highScore;
-                        file.close();
-                    }
+                    scoreboard.setHighScore(highScore);
+                    //Update the text strings
+                    highScoreText.setString("High Score: " + std::to_string(highScore));
+                    scoreText.setString("Score: " + std::to_string(score));
                 }
-                //Update the text strings
-                highScoreText.setString("High Score: " + std::to_string(highScore));
-                scoreText.setString("Score: " + std::to_string(score));
+                
 
 
                 window.clear();
