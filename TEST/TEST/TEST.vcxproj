@@ -153,13 +153,19 @@
   <ItemGroup>
     <ClCompile Include="Blocks.cpp" />
     <ClCompile Include="Buttons.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="Scoreboard.cpp" />
     <ClCompile Include="TEST.cpp" />
+    <ClCompile Include="Texts.cpp" />
+    <ClCompile Include="Txtrs.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Blocks.h" />
     <ClInclude Include="Buttons.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="Scoreboard.h" />
+    <ClInclude Include="Texts.h" />
+    <ClInclude Include="Txtrs.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

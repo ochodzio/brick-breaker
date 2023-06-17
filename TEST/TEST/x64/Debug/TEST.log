@@ -1,39 +1,34 @@
-﻿  Blocks.cpp
-  Buttons.cpp
-  Scoreboard.cpp
-  TEST.cpp
-C:\Users\Przemysław\Documents\GitHub\brick-breaker\TEST\TEST\TEST.cpp(121,96): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+﻿  TEST.cpp
+C:\local_repo\brick-breaker\TEST\TEST\TEST.cpp(48,96): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\Przemysław\Documents\GitHub\brick-breaker\TEST\TEST\TEST.cpp(121,75): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\local_repo\brick-breaker\TEST\TEST\TEST.cpp(48,75): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\Przemysław\Documents\GitHub\brick-breaker\TEST\TEST\TEST.cpp(152,23): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Przemysław\Documents\GitHub\brick-breaker\TEST\TEST\TEST.cpp(228,96): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Przemysław\Documents\GitHub\brick-breaker\TEST\TEST\TEST.cpp(228,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Przemysław\Documents\GitHub\brick-breaker\TEST\TEST\TEST.cpp(233,96): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Przemysław\Documents\GitHub\brick-breaker\TEST\TEST\TEST.cpp(233,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Przemysław\Documents\GitHub\brick-breaker\TEST\TEST\TEST.cpp(238,96): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Przemysław\Documents\GitHub\brick-breaker\TEST\TEST\TEST.cpp(238,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Przemysław\Documents\GitHub\brick-breaker\TEST\TEST\TEST.cpp(243,96): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Przemysław\Documents\GitHub\brick-breaker\TEST\TEST\TEST.cpp(243,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Przemysław\Documents\GitHub\brick-breaker\TEST\TEST\TEST.cpp(248,96): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Przemysław\Documents\GitHub\brick-breaker\TEST\TEST\TEST.cpp(248,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Przemysław\Documents\GitHub\brick-breaker\TEST\TEST\TEST.cpp(318,41): warning C4553: '==': result of expression not used; did you intend '='?
-C:\Users\Przemysław\Documents\GitHub\brick-breaker\TEST\TEST\TEST.cpp(494,96): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\local_repo\brick-breaker\TEST\TEST\TEST.cpp(77,23): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+C:\local_repo\brick-breaker\TEST\TEST\TEST.cpp(137,96): warning C4244: "argument": konwersja z "int" do "float", możliwa utrata danych
+C:\local_repo\brick-breaker\TEST\TEST\TEST.cpp(137,64): warning C4244: "argument": konwersja z "int" do "float", możliwa utrata danych
+C:\local_repo\brick-breaker\TEST\TEST\TEST.cpp(142,96): warning C4244: "argument": konwersja z "int" do "float", możliwa utrata danych
+C:\local_repo\brick-breaker\TEST\TEST\TEST.cpp(142,64): warning C4244: "argument": konwersja z "int" do "float", możliwa utrata danych
+C:\local_repo\brick-breaker\TEST\TEST\TEST.cpp(147,96): warning C4244: "argument": konwersja z "int" do "float", możliwa utrata danych
+C:\local_repo\brick-breaker\TEST\TEST\TEST.cpp(147,64): warning C4244: "argument": konwersja z "int" do "float", możliwa utrata danych
+C:\local_repo\brick-breaker\TEST\TEST\TEST.cpp(152,96): warning C4244: "argument": konwersja z "int" do "float", możliwa utrata danych
+C:\local_repo\brick-breaker\TEST\TEST\TEST.cpp(152,64): warning C4244: "argument": konwersja z "int" do "float", możliwa utrata danych
+C:\local_repo\brick-breaker\TEST\TEST\TEST.cpp(157,96): warning C4244: "argument": konwersja z "int" do "float", możliwa utrata danych
+C:\local_repo\brick-breaker\TEST\TEST\TEST.cpp(157,64): warning C4244: "argument": konwersja z "int" do "float", możliwa utrata danych
+C:\local_repo\brick-breaker\TEST\TEST\TEST.cpp(213,41): warning C4553: „==”: Wynik wyrażenia nie jest używany; czy chodziło Ci o „=”?
+C:\local_repo\brick-breaker\TEST\TEST\TEST.cpp(384,92): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\Przemysław\Documents\GitHub\brick-breaker\TEST\TEST\TEST.cpp(494,75): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\local_repo\brick-breaker\TEST\TEST\TEST.cpp(384,71): warning C4244: "argument": konwersja z "int" do "T", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\Przemysław\Documents\GitHub\brick-breaker\TEST\TEST\TEST.cpp(60,3): warning C4102: 'sf': unreferenced label
-  Generating Code...
-  TEST.vcxproj -> C:\Users\Przemysław\Documents\GitHub\brick-breaker\TEST\x64\Debug\TEST.exe
+  TEST.vcxproj -> C:\local_repo\brick-breaker\TEST\x64\Debug\TEST.exe
