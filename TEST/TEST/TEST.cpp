@@ -5,9 +5,9 @@
 #include "Scoreboard.h"
 #include "Blocks.h"
 #include "Buttons.h"
-#include "Game.h"
 #include "Txtrs.h"
 #include "Texts.h"
+#include "Player.h"
 using namespace sf;
 int main() {
     Scoreboard scoreboard; //scoreboard data
@@ -18,6 +18,7 @@ int main() {
     bool gameOver = false;
     bool gameWin = false;
     bool showScoreBoard = false;
+    bool addedEntry = true;
     int countdown = 5; //Main menu countdown after game over
     Clock countdownClock; //added to implement counter
     Font font; // Added to handle fonts
@@ -29,10 +30,24 @@ int main() {
     Button scoreboardButton(sf::Vector2f(540, 370), sf::Vector2f(200, 50), sf::Color::Blue, "Scoreboard", font, 24);
     Button exitButton(sf::Vector2f(540, 490), sf::Vector2f(200, 50), sf::Color::Red, "Exit", font, 24);
     Button returnToMenuButton(sf::Vector2f(540, 50), sf::Vector2f(200, 50), sf::Color::Red, "Return", font, 24);
+    
+    sf::RectangleShape inputBox(sf::Vector2f(200.f, 30.f));
+    inputBox.setPosition(540, 150);
+    inputBox.setFillColor(sf::Color::White);
+    inputBox.setOutlineColor(sf::Color::Black);
 
+    sf::Text inputText("Player 1", font, 20);
+    inputText.setPosition(540, 150);
+    inputText.setFillColor(sf::Color::Black);
+    string name = "Player 1";
 
+    sf::Text enterYourNameText("Enter your name", font, 20);
+    enterYourNameText.setPosition(540, 100);
+    enterYourNameText.setFillColor(sf::Color::White);
+  
     while (window.isOpen())
     {
+        
         gameStarted = false;
         gameWin = false;
         sf::Event event;
@@ -41,16 +56,32 @@ int main() {
             if (event.type == sf::Event::Closed)
                 window.close();
             //Main menu 
+            if (event.type == sf::Event::TextEntered && name.length() < 10) {
+                if (event.text.unicode < 128 && event.text.unicode != '\r') {
+                    char z= static_cast<char>(event.text.unicode) ;
+                    name.push_back( z );
+                    inputText.setString(name);
+                }
+            }
+             
+                if ( event.key.code == sf::Keyboard::Backspace && !name.empty()) {
+                    name.resize(name.size() - 1);
+                    
+                }
+            
             if (event.type == sf::Event::MouseButtonReleased)
             {
+                
                 if (event.mouseButton.button == sf::Mouse::Left)
                 {
+                    
                     sf::Vector2f mousePos = sf::Vector2f(event.mouseButton.x, event.mouseButton.y);
                     if (newGameButton.isClicked(mousePos))
                     {
                         // New Game button clicked, start the game here
-
+                        if (name.empty()) name = "Player 1";
                         gameStarted = true;
+                        addedEntry = false;
                         gameOver = false;
 
                     }
@@ -208,12 +239,14 @@ int main() {
                         else {
                             block[i].sprite.setPosition(-100, 0);
                             score++; // Increment the score when a block is hit
-                            if (score == n)
-                            {
-                                gameWin == true;
-                            }
+                            
                         }
-
+                        if (score == n)
+                        {
+                            gameWin = true;
+                            dy = 0;
+                            dx = 0;
+                        }
 
 
                     }
@@ -222,9 +255,10 @@ int main() {
                     dx = -dx;
                 if (y < 40)
                     dy = -dy;
-                if (y > 720) {
+                if (y > 710) {
                     gameOver = true;
-
+                    dx = 0; 
+                    dy = 0;
                 }
                 //Move paddle
                 if (Keyboard::isKeyPressed(Keyboard::Right) && sPaddle.getPosition().x + sPaddle.getLocalBounds().width < 1280)
@@ -232,7 +266,7 @@ int main() {
                 if (Keyboard::isKeyPressed(Keyboard::Left) && sPaddle.getPosition().x > 0)
                     sPaddle.move(-8, 0);
                 //rebounce while paddle moving
-                if (FloatRect(x + 3, y + 3, 6, 6).intersects(sPaddle.getGlobalBounds())) {
+                if (FloatRect(x , y , 6, 6).intersects(sPaddle.getGlobalBounds())) {
                     dy = -dy;
                     if (Keyboard::isKeyPressed(Keyboard::Right))
                     {
@@ -276,6 +310,7 @@ int main() {
                 }
 
                 //Update the text strings
+                
                 texts.highScoreText.setString("High Score: " + std::to_string(highScore));
                 texts.scoreText.setString("Score: " + std::to_string(score));
 
@@ -290,8 +325,12 @@ int main() {
                     window.draw(block[i].sprite);
                 if (gameOver) {
                     //Game Over screen
-
-
+                    if (!addedEntry) {
+                        scoreboard.addEntry(name, score);
+                        addedEntry = true;
+                    }
+                    
+                    
                     Text gameOverText("Game Over", font, 48);
                     sf::FloatRect textBounds1 = gameOverText.getLocalBounds();
                     gameOverText.setPosition((window.getSize().x - textBounds1.width) / 2, 200);
@@ -315,7 +354,7 @@ int main() {
                         window.draw(gameOverBox);
                         window.draw(gameOverText);
                         window.draw(countdownText);
-
+                        
 
                     }
                     else
@@ -329,8 +368,11 @@ int main() {
                 }
                 else if (gameWin) {
                     //Game Win screen
-
-
+                    if (!addedEntry) {
+                        scoreboard.addEntry(name, score);
+                        addedEntry = true;
+                    }
+                    //scoreboard.addEntry(name, score);
                     Text gameWinText("You Win!!!", font, 48);
                     sf::FloatRect textBounds1 = gameWinText.getLocalBounds();
                     gameWinText.setPosition((window.getSize().x - textBounds1.width) / 2, 200);
@@ -366,7 +408,7 @@ int main() {
                         break;
                     }
                 }
-
+                
                 //Draw the text
                 texts.draw(window);
              
@@ -394,19 +436,25 @@ int main() {
             scoreboardText.setFont(font);
             scoreboardText.setCharacterSize(24);
             scoreboardText.setFillColor(sf::Color::White);
-
+            sf::Text scoreboardText2;
+            scoreboardText2.setFont(font);
+            scoreboardText2.setCharacterSize(24);
+            scoreboardText2.setFillColor(sf::Color::White);
             float pos_scoreboard_y = 120.f;//starting position fo scoreboard text
 
-
-            for (const std::string& entry : scoreboard.getScoreboard()) {
-
-                scoreboardText.setString(entry);
+            scoreboard.sortScoreboard();
+            int titeration = 0;
+            for (const Player& entry : scoreboard.getScoreboard()) {
+                titeration++;
+                scoreboardText.setString(entry.name);
+                scoreboardText2.setString(to_string(entry.score));
                 scoreboardText.setPosition(540, pos_scoreboard_y);
-
+                scoreboardText2.setPosition(700, pos_scoreboard_y);
+                
                 window.draw(scoreboardText);
-
+                window.draw(scoreboardText2);
                 pos_scoreboard_y += 30.0f;//adjust vertical spacing between entries
-
+                if (titeration > 9) break;
             }
             returnToMenuButton.draw(window);
 
@@ -414,6 +462,10 @@ int main() {
         else
         {
             // Draw buttons and labels
+            //inputBox.draw(window);
+            window.draw(enterYourNameText);
+            window.draw(inputBox);
+            window.draw(inputText);
             newGameButton.draw(window);
             scoreboardButton.draw(window);
             exitButton.draw(window);
@@ -423,5 +475,6 @@ int main() {
 
         window.display();
     }
+    scoreboard.setScoreboard();
         return 0;
     }
